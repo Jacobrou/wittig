@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有机磷化合物知识介绍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#FF7D00',
+                        neutral: {
+                            100: '#F5F7FA',
+                            200: '#E5E6EB',
+                            300: '#C9CDD4',
+                            400: '#86909C',
+                            500: '#4E5969',
+                            600: '#272E3B',
+                            700: '#1D2129',
+                        }
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'card-hover': '0 8px 30px rgba(0, 0, 0, 0.12)',
+                    }
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-balance {
+                text-wrap: balance;
+            }
+            .section-transition {
+                transition: all 0.5s ease;
+            }
+            .reaction-arrow {
+                @apply text-primary font-bold text-xl mx-2;
+            }
+            .chem-formula {
+                @apply font-mono text-neutral-700 bg-neutral-100 px-2 py-1 rounded;
+            }
+            .hover-lift {
+                @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-neutral-100 text-neutral-700">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-primary font-bold text-2xl">有机磷化学</span>
+                    </div>
+                    <nav class="hidden md:ml-10 md:flex space-x-8">
+                        <a href="#overview" class="text-neutral-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">概述</a>
+                        <a href="#naming" class="text-neutral-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">命名</a>
+                        <a href="#properties" class="text-neutral-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">物理性质</a>
+                        <a href="#reactions" class="text-neutral-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">化学性质</a>
+                        <a href="#wittig" class="text-primary border-b-2 border-primary px-3 py-2 text-sm font-medium">Wittig反应</a>
+                        <a href="#history" class="text-neutral-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">历史</a>
+                    </nav>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="text-neutral-600 hover:text-primary focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-neutral-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#overview" class="text-neutral-600 hover:text-primary block px-3 py-2 text-base font-medium">概述</a>
+                <a href="#naming" class="text-neutral-600 hover:text-primary block px-3 py-2 text-base font-medium">命名</a>
+                <a href="#properties" class="text-neutral-600 hover:text-primary block px-3 py-2 text-base font-medium">物理性质</a>
+                <a href="#reactions" class="text-neutral-600 hover:text-primary block px-3 py-2 text-base font-medium">化学性质</a>
+                <a href="#wittig" class="text-primary font-medium block px-3 py-2 text-base">Wittig反应</a>
+                <a href="#history" class="text-neutral-600 hover:text-primary block px-3 py-2 text-base font-medium">历史</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/5 to-primary/10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-neutral-700 leading-tight mb-6">
+                    有机磷化合物<span class="text-primary">化学</span>
+                </h1>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] text-neutral-500 mb-8 text-balance">
+                    探索磷元素在有机化学中的独特性质与应用，聚焦Wittig反应的机理与历史
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#overview" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 font-medium">
+                        开始学习 <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#wittig" class="bg-white hover:bg-neutral-50 text-primary border border-primary px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium">
+                        直接查看Wittig反应
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 概述部分 -->
+    <section id="overview" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12 text-center">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral-700 mb-4">
+                        <span class="inline-block border-b-4 border-primary pb-2">有机磷化合物概述</span>
+                    </h2>
+                    <p class="text-neutral-500 max-w-3xl mx-auto">
+                        有机磷化合物是指分子中含有碳-磷（C-P）键的一类有机化合物，在医药、农药、材料科学及有机合成中具有重要应用。
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-neutral-50 rounded-xl p-6 shadow-card hover-lift">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-flask text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-700 mb-3">结构多样性</h3>
+                        <p class="text-neutral-500">
+                            磷原子可形成多种价态（+3、+5）和配位数（3、4、5），衍生出膦、亚膦酸、磷酸酯等丰富的官能团。
+                        </p>
+                    </div>
+
+                    <div class="bg-neutral-50 rounded-xl p-6 shadow-card hover-lift">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-cubes text-secondary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-700 mb-3">应用广泛</h3>
+                        <p class="text-neutral-500">
+                            用于药物合成（如抗病毒药物）、农药（如对硫磷）、材料科学（如阻燃剂）及有机合成中的关键反应（如Wittig反应）。
+                        </p>
+                    </div>
+
+                    <div class="bg-neutral-50 rounded-xl p-6 shadow-card hover-lift">
+                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-lightbulb text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-700 mb-3">历史意义</h3>
+                        <p class="text-neutral-500">
+                            1954年发现的Wittig反应彻底改变了烯烃合成策略，其发现者Georg Wittig于1979年获得诺贝尔化学奖。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-neutral-50 rounded-xl p-6 shadow-card">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">基本结构示例</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-white rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-600 mb-2">三苯基膦 (Triphenylphosphine)</h4>
+                            <div class="flex justify-center">
+                                <img src="images/三苯基膦.PNG" alt="三苯基膦结构" class="h-32 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                            <p class="text-sm text-neutral-500 mt-2 text-center">Ph₃P</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-600 mb-2">磷酸三乙酯 (Triethyl phosphate)</h4>
+                            <div class="flex justify-center">
+                                <img src="images/三磷酸乙酯.PNG" alt="磷酸三乙酯结构" class="h-32 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                            <p class="text-sm text-neutral-500 mt-2 text-center">OP(OEt)₃</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 命名部分 -->
+    <section id="naming" class="py-16 bg-neutral-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12 text-center">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral-700 mb-4">
+                        <span class="inline-block border-b-4 border-primary pb-2">命名规则</span>
+                    </h2>
+                    <p class="text-neutral-500 max-w-3xl mx-auto">
+                        有机磷化合物的命名基于磷的价态、连接基团及官能团类型，遵循IUPAC命名法的基本原则。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6 mb-8">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">1. 膦类化合物 (R₃P)</h3>
+                    <p class="text-neutral-600 mb-4">以"膦"为后缀，取代基按顺序规则命名。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-700 mb-2">三甲基膦</h4>
+                            <p class="chem-formula">Me₃P</p>
+                            <p class="text-sm text-neutral-500 mt-2">Trimethylphosphine</p>
+                            <div class="flex justify-center mt-3">
+                                <img src="images/三甲基磷.png" alt="三甲基膦结构" class="h-24 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-700 mb-2">三苯基膦</h4>
+                            <p class="chem-formula">Ph₃P</p>
+                            <p class="text-sm text-neutral-500 mt-2">Triphenylphosphine</p>
+                            <div class="flex justify-center mt-3">
+                                <img src="images/三苯基膦.png" alt="三苯基膦结构" class="h-24 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-700 mb-2">甲基二苯基膦</h4>
+                            <p class="chem-formula">Ph₂PMe</p>
+                            <p class="text-sm text-neutral-500 mt-2">Methyldiphenylphosphine</p>
+                            <div class="flex justify-center mt-3">
+                                <img src="images/甲基二苯基膦.png" alt="甲基二苯基膦结构" class="h-24 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6 mb-8">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">2. 亚膦酸及酯类</h3>
+                    <p class="text-neutral-600 mb-4">亚膦酸（H₃PO₃）的衍生物命名为"亚膦酸某酯"。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-700 mb-2">亚磷酸二甲酯</h4>
+                            <p class="chem-formula">(MeO)₂P(OH)</p>
+                            <p class="text-sm text-neutral-500 mt-2">Dimethyl phosphite</p>
+                            <div class="flex justify-center mt-3">
+                                <img src="images/亚磷酸二甲酯.png" alt="亚磷酸二甲酯结构" class="h-24 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-700 mb-2">亚磷酸三乙酯</h4>
+                            <p class="chem-formula">P(OEt)₃</p>
+                            <p class="text-sm text-neutral-500 mt-2">Triethyl phosphite</p>
+                            <div class="flex justify-center mt-3">
+                                <img src="images/亚磷酸乙酯.png" alt="亚磷酸三乙酯结构" class="h-24 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6 mb-8">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">3. 磷酸及酯类</h3>
+                    <p class="text-neutral-600 mb-4">磷酸（H₃PO₄）的衍生物为"磷酸某酯"。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-700 mb-2">磷酸二乙酯</h4>
+                            <p class="chem-formula">(EtO)₂P(O)OH</p>
+                            <p class="text-sm text-neutral-500 mt-2">Diethyl phosphate</p>
+                            <div class="flex justify-center mt-3">
+                                <img src="images/磷酸二乙酯.png" alt="磷酸二乙酯结构" class="h-24 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-700 mb-2">磷酸三苯酯</h4>
+                            <p class="chem-formula">OP(OPh)₃</p>
+                            <p class="text-sm text-neutral-500 mt-2">Triphenyl phosphate</p>
+                            <div class="flex justify-center mt-3">
+                                <img src="images/磷酸三苯酯.png" alt="磷酸三苯酯结构" class="h-24 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">4. 季鏻盐 (R₄P⁺X⁻)</h3>
+                    <p class="text-neutral-600 mb-4">命名为"卤化某基鏻"。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-700 mb-2">溴化四丁基鏻</h4>
+                            <p class="chem-formula">Bu₄P⁺Br⁻</p>
+                            <p class="text-sm text-neutral-500 mt-2">Tetrabutylphosphonium bromide</p>
+                            <div class="flex justify-center mt-3">
+                                <img src="images/溴化四丁基鏻.png" alt="溴化四丁基鏻结构" class="h-24 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+                            <h4 class="font-semibold text-neutral-700 mb-2">溴化三苯基甲基鏻</h4>
+                            <p class="chem-formula">Ph₃P⁺CH₃Br⁻</p>
+                            <p class="text-sm text-neutral-500 mt-2">Methyltriphenylphosphonium bromide</p>
+                            <div class="flex justify-center mt-3">
+                                <img src="images/溴化三苯基甲基鏻.png" alt="溴化三苯基甲基鏻结构" class="h-24 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 物理性质部分 -->
+    <section id="properties" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12 text-center">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral-700 mb-4">
+                        <span class="inline-block border-b-4 border-primary pb-2">物理性质</span>
+                    </h2>
+                    <p class="text-neutral-500 max-w-3xl mx-auto">
+                        有机磷化合物的物理性质因结构而异，低分子量膦多为气体，高分子量膦为固体，磷酸酯多为液体。
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-neutral-50 rounded-xl p-6 shadow-card hover-lift">
+                        <h3 class="text-xl font-bold text-neutral-700 mb-4 flex items-center">
+                            <i class="fa-solid fa-temperature-half text-primary mr-2"></i> 状态与溶解性
+                        </h3>
+                        <ul class="space-y-3 text-neutral-600">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                <span>低分子量膦（如甲膦）多为气体，具有大蒜或鱼腥臭味</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                <span>高分子量膦（如三苯基膦）为固体，难溶于水，易溶于有机溶剂</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                <span>季鏻盐通常为结晶固体，极性强，可溶于水或极性溶剂</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                <span>磷酸酯多为液体，部分具有高沸点，常用作溶剂或增塑剂</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-neutral-50 rounded-xl p-6 shadow-card hover-lift">
+                        <h3 class="text-xl font-bold text-neutral-700 mb-4 flex items-center">
+                            <i class="fa-solid fa-flask text-primary mr-2"></i> 稳定性
+                        </h3>
+                        <ul class="space-y-3 text-neutral-600">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                <span>三价磷化合物（如膦、亚膦酸酯）易被氧化，暴露于空气中可缓慢生成氧化膦或磷酸酯</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                <span>五价磷化合物（如磷酸酯、季鏻盐）稳定性较高</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                <span>部分有机磷化合物对光、热敏感，需避光低温保存</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-10 bg-neutral-50 rounded-xl p-6 shadow-card">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">物理性质对比表</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-neutral-200">
+                            <thead class="bg-neutral-100">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">化合物类型</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">状态</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">溶解性</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">稳定性</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-neutral-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="font-medium text-neutral-700">膦 (R₃P)</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-neutral-600">低分子量为气体，高分子量为固体</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-neutral-600">难溶于水，易溶于有机溶剂</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-red-600">易被氧化</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="font-medium text-neutral-700">氧化膦 (R₃P=O)</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-neutral-600">固体</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-neutral-600">微溶于水，溶于有机溶剂</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-green-600">稳定</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="font-medium text-neutral-700">季鏻盐 (R₄P⁺X⁻)</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-neutral-600">结晶固体</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-neutral-600">易溶于水，部分溶于极性有机溶剂</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-green-600">稳定</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="font-medium text-neutral-700">磷酸酯 (RO)₃P=O</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-neutral-600">液体或低熔点固体</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-neutral-600">部分溶于水，易溶于有机溶剂</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-green-600">稳定</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 化学性质部分 -->
+    <section id="reactions" class="py-16 bg-neutral-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12 text-center">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral-700 mb-4">
+                        <span class="inline-block border-b-4 border-primary pb-2">化学性质与反应类型</span>
+                    </h2>
+                    <p class="text-neutral-500 max-w-3xl mx-auto">
+                        有机磷化合物因磷原子的独特电子结构，展现出丰富的化学反应性，是有机合成中的重要工具。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6 mb-8">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">基本化学性质</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-neutral-700 mb-3 flex items-center">
+                                <i class="fa-solid fa-hand-pointer text-primary mr-2"></i> 亲核性与配位能力
+                            </h4>
+                            <p class="text-neutral-600 mb-4">
+                                膦（R₃P）中的磷原子含孤对电子，是强亲核试剂，可与卤代烃反应生成季鏻盐。
+                            </p>
+                            <div class="bg-neutral-50 p-4 rounded-lg mb-4">
+                                <p class="chem-formula">Ph₃P + CH₃Br → Ph₃P⁺CH₃Br⁻</p>
+                            </div>
+                            <p class="text-neutral-600">
+                                膦也是常见的配体，可与过渡金属配位，如Wilkinson催化剂RhCl(PPh₃)₃。
+                            </p>
+                            <div class="flex justify-center mt-4">
+                                <img src="images/wilkinson催化剂.png" alt="Wilkinson催化剂结构" class="h-32 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-neutral-700 mb-3 flex items-center">
+                                <i class="fa-solid fa-fire text-red-500 mr-2"></i> 氧化反应
+                            </h4>
+                            <p class="text-neutral-600 mb-4">
+                                三价磷易被氧化为五价，常用的氧化剂包括过氧化物、卤素等。
+                            </p>
+                            <div class="bg-neutral-50 p-4 rounded-lg mb-4">
+                                <p class="chem-formula">Ph₃P + H₂O₂ → Ph₃PO + H₂O</p>
+                            </div>
+                            <p class="text-neutral-600">
+                                该反应常用于Staudinger还原和Wittig反应的副产物处理。
+                            </p>
+                            <div class="flex justify-center mt-4">
+                                <img src="images/staudinger反应.png" alt="氧化反应机理" class="h-32 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6 mb-8">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">特征反应类型</h3>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold text-neutral-700 mb-3 flex items-center">
+                            <i class="fa-solid fa-plus text-primary mr-2"></i> 季鏻盐的生成（亲核取代）
+                        </h4>
+                        <p class="text-neutral-600 mb-4">
+                            膦与卤代烃发生Sₙ2反应，生成季鏻盐。
+                        </p>
+                        <div class="bg-neutral-50 p-4 rounded-lg mb-4">
+                            <p class="chem-formula">R₃P + R'X → R₃P⁺R'X⁻</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <img src="images/季鏻盐生成.png" alt="季鏻盐生成机理" class="h-40 object-contain rounded-lg border border-neutral-200">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold text-neutral-700 mb-3 flex items-center">
+                            <i class="fa-solid fa-exchange text-primary mr-2"></i> Michaelis-Arbuzov反应
+                        </h4>
+                        <p class="text-neutral-600 mb-4">
+                            亚膦酸酯与卤代烃反应生成磷酸酯，常用于合成磷酸酯类化合物。
+                        </p>
+                        <div class="bg-neutral-50 p-4 rounded-lg mb-4">
+                            <p class="chem-formula">P(OR)₃ + R'X → OP(OR)₂(OR') + RX</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <img src="images/arbuzov反应.png" alt="Michaelis-Arbuzov反应机理" class="h-40 object-contain rounded-lg border border-neutral-200">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-700 mb-3 flex items-center">
+                            <i class="fa-solid fa-arrows-alt-h text-primary mr-2"></i> Wittig反应（重点）
+                        </h4>
+                        <p class="text-neutral-600 mb-4">
+                            醛或酮与磷叶立德反应，生成烯烃和三苯氧膦，是合成烯烃的重要方法。
+                        </p>
+                        <div class="bg-neutral-50 p-4 rounded-lg mb-4">
+                            <p class="chem-formula">RCHO + Ph₃P=CH₂ → RCH=CH₂ + Ph₃PO</p>
+                        </div>
+                        <p class="text-neutral-600">
+                            详细机理和应用见<a href="#wittig" class="text-primary hover:underline">Wittig反应</a>部分。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wittig反应部分 -->
+    <section id="wittig" class="py-16 bg-primary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12 text-center">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral-700 mb-4">
+                        <span class="inline-block border-b-4 border-primary pb-2">Wittig反应</span>
+                    </h2>
+                    <p class="text-neutral-500 max-w-3xl mx-auto">
+                        Wittig反应是有机合成中构建碳-碳双键的经典方法，由德国化学家Georg Wittig发现，该成果使其获得1979年诺贝尔化学奖。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6 mb-8">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">反应概述</h3>
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2">
+                            <p class="text-neutral-600 mb-4">
+                                Wittig反应是醛或酮与磷叶立德（Wittig试剂）反应生成烯烃和氧化膦的过程。该反应的重要性在于能够选择性地构建碳-碳双键，且双键位置明确。
+                            </p>
+                            <div class="bg-neutral-50 p-4 rounded-lg mb-4">
+                                <p class="chem-formula">R₂C=O + Ph₃P=CR'₂ → R₂C=CR'₂ + Ph₃P=O</p>
+                            </div>
+                            <p class="text-neutral-600 mb-4">
+                                磷叶立德是一类具有碳-磷双键的化合物，其负电荷位于碳原子上，可作为亲核试剂进攻羰基化合物。
+                            </p>
+                            <div class="bg-neutral-50 p-4 rounded-lg">
+                                <p class="text-sm text-neutral-600 italic">
+                                    注：稳定的磷叶立德（如酯基取代）倾向于生成E-烯烃，而不稳定的磷叶立德（如烷基取代）则主要生成Z-烯烃。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center items-center">
+                            <img src="images/Wittig反应概述.png" alt="Wittig反应示意图" class="h-64 object-contain rounded-lg border border-neutral-200">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6 mb-8">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">反应机理</h3>
+                    <div class="space-y-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-2/3">
+                                <h4 class="text-lg font-semibold text-neutral-700 mb-2">1. 亲核加成</h4>
+                                <p class="text-neutral-600">
+                                    磷叶立德的碳负离子进攻醛或酮的羰基碳原子，形成一个带负电荷的中间体。
+                                </p>
+                                <div class="bg-neutral-50 p-4 rounded-lg my-3">
+                                    <p class="chem-formula">Ph₃P=CH₂ + RCHO → [Ph₃P⁺-CH₂-CHR-O⁻]</p>
+                                </div>
+                            </div>
+                            <div class="md:w-1/3 flex justify-center items-center">
+                                <img src="images/Wittig反应第一步.png" alt="亲核加成步骤" class="h-32 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-2/3">
+                                <h4 class="text-lg font-semibold text-neutral-700 mb-2">2. 环化</h4>
+                                <p class="text-neutral-600">
+                                    带负电荷的氧原子进攻磷原子，形成一个四元环中间体（oxaphosphetane）。
+                                </p>
+                                <div class="bg-neutral-50 p-4 rounded-lg my-3">
+                                    <p class="chem-formula">[Ph₃P⁺-CH₂-CHR-O⁻] → 四元环中间体</p>
+                                </div>
+                            </div>
+                            <div class="md:w-1/3 flex justify-center items-center">
+                                <img src="images/wittig反应第二步成环.png" alt="环化步骤" class="h-32 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-2/3">
+                                <h4 class="text-lg font-semibold text-neutral-700 mb-2">3. 消除</h4>
+                                <p class="text-neutral-600">
+                                    四元环中间体发生消除反应，生成烯烃和三苯氧膦（E型占比大，位阻）。
+                                </p>
+                                <div class="bg-neutral-50 p-4 rounded-lg my-3">
+                                    <p class="chem-formula">四元环中间体 → RCH=CH₂ + Ph₃P=O</p>
+                                </div>
+                            </div>
+                            <div class="md:w-1/3 flex justify-center items-center">
+                                <img src="images/wittig反应第三步消除.png" alt="消除步骤" class="h-32 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6 mb-8">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">试剂制备</h3>
+                    <p class="text-neutral-600 mb-6">
+                        磷叶立德通常由季鏻盐在强碱作用下脱质子生成：
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-2/3">
+                            <div class="bg-neutral-50 p-4 rounded-lg mb-4">
+                                <p class="chem-formula">Ph₃P + CH₃Br → Ph₃P⁺CH₃Br⁻</p>
+                                <p class="reaction-arrow">+ BuLi</p>
+                                <p class="chem-formula">Ph₃P=CH₂ + BuH + LiBr</p>
+                            </div>
+                            <p class="text-neutral-600">
+                                常用的强碱包括丁基锂（BuLi）、叔丁醇钾（t-BuOK）等。
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 flex justify-center items-center">
+                            <img src="images/磷叶立德的合成.png" alt="磷叶立德制备" class="h-40 object-contain rounded-lg border border-neutral-200">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6 mb-8">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">应用示例</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-neutral-700 mb-2">天然产物合成</h4>
+                            <p class="text-neutral-600 mb-3">
+                                Wittig反应常用于合成具有双键结构的天然产物，如维生素A、β-胡萝卜素等。
+                            </p>
+                            <div class="flex justify-center">
+                                <img src="images/VA.png" alt="维生素A合成" class="h-32 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-neutral-700 mb-2">药物合成</h4>
+                            <p class="text-neutral-600 mb-3">
+                                在药物化学中，Wittig反应可用于构建关键的烯烃结构，如某些抗癌药物的中间体。
+                            </p>
+                            <div class="flex justify-center">
+                                <img src="images/wittig反应医药中间体.png" alt="药物合成" class="h-32 object-contain rounded-lg border border-neutral-200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-card p-6">
+                    <h3 class="text-xl font-bold text-neutral-700 mb-4">优点与局限性</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-green-600 mb-3 flex items-center">
+                                <i class="fa-solid fa-check-circle mr-2"></i> 优点
+                            </h4>
+                            <ul class="space-y-2 text-neutral-600">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                    <span>选择性地构建碳-碳双键，双键位置明确</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                    <span>反应条件温和，通常在室温下即可进行</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                    <span>可用于合成各种结构的烯烃，包括端烯和内烯</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2"></i>
+                                    <span>可容忍多种官能团，如羟基、醚基、酯基等</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-red-600 mb-3 flex items-center">
+                                <i class="fa-solid fa-times-circle mr-2"></i> 局限性
+                            </h4>
+                            <ul class="space-y-2 text-neutral-600">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-xmark text-red-500 mt-1 mr-2"></i>
+                                    <span>磷试剂制备较繁琐，且价格较贵</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-xmark text-red-500 mt-1 mr-2"></i>
+                                    <span>生成的氧化膦副产物难以分离，需通过柱层析等方法纯化</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-xmark text-red-500 mt-1 mr-2"></i>
+                                    <span>对于空间位阻较大的酮，反应产率可能较低</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle-xmark text-red-500 mt-1 mr-2"></i>
+                                    <span>某些情况下双键的立体选择性不理想</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 历史部分 -->
+    <section id="history" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12 text-center">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral-700 mb-4">
+                        <span class="inline-block border-b-4 border-primary pb-2">历史与发展</span>
+                    </h2>
+                    <p class="text-neutral-500 max-w-3xl mx-auto">
+                        有机磷化学的发展历程见证了人类对有机分子结构与反应性的深入理解，特别是Wittig反应的发现为有机合成开辟了新途径。
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <!-- 时间线 -->
+                    <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform md:translate-x-[-0.5px]"></div>
+
+                    <div class="space-y-8 relative">
+                        <!-- 1919 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="order-2 md:order-1 md:w-1/2 md:pr-12 md:text-right">
+                                <div class="bg-neutral-50 p-6 rounded-xl shadow-card hover-lift">
+                                    <h3 class="text-xl font-bold text-neutral-700 mb-2">1919年</h3>
+                                    <p class="text-neutral-600">
+                                        Hermann Staudinger首次报道了磷叶立德的生成，并研究了其与羰基化合物的反应，为Wittig反应奠定了基础。
+                                    </p>
+                                    <div class="mt-4 flex justify-end">
+                                        <img src="images/staudinger.jpg" alt="Hermann Staudinger" class="h-24 object-contain rounded-lg border border-neutral-200">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-1 md:order-2 flex justify-center items-center mb-4 md:mb-0">
+                                <div class="z-10 w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                                    <span class="text-white font-bold">1919</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1953 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="order-2 md:order-2 md:w-1/2 md:pl-12">
+                                <div class="bg-neutral-50 p-6 rounded-xl shadow-card hover-lift">
+                                    <h3 class="text-xl font-bold text-neutral-700 mb-2">1953年</h3>
+                                    <p class="text-neutral-600">
+                                        Georg Wittig和他的学生Uschütz首次报道了用磷叶立德将酮转化为烯烃的反应，标志着Wittig反应的正式发现。
+                                    </p>
+                                    <div class="mt-4">
+                                        <img src="images/Georg_Wittig.jpg" alt="Georg Wittig" class="h-24 object-contain rounded-lg border border-neutral-200">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-1 flex justify-center items-center mb-4 md:mb-0">
+                                <div class="z-10 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                    <span class="text-white font-bold">1953</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1954 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="order-2 md:order-1 md:w-1/2 md:pr-12 md:text-right">
+                                <div class="bg-neutral-50 p-6 rounded-xl shadow-card hover-lift">
+                                    <h3 class="text-xl font-bold text-neutral-700 mb-2">1954年</h3>
+                                    <p class="text-neutral-600">
+                                        Wittig小组进一步报道了该反应的详细研究，并展示了其在有机合成中的应用潜力，引起了有机化学界的广泛关注。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="order-1 md:order-2 flex justify-center items-center mb-4 md:mb-0">
+                                <div class="z-10 w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                                    <span class="text-white font-bold">1954</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1979 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="order-2 md:order-2 md:w-1/2 md:pl-12">
+                                <div class="bg-neutral-50 p-6 rounded-xl shadow-card hover-lift">
+                                    <h3 class="text-xl font-bold text-neutral-700 mb-2">1979年</h3>
+                                    <p class="text-neutral-600">
+                                        Georg Wittig因"发现磷叶立德在有机合成中的应用"与Herbert C. Brown分享诺贝尔化学奖，以表彰他们在有机合成方法学上的杰出贡献。
+                                    </p>
+                                    <div class="mt-4">
+                                        <img src="images/1979诺奖.jpg" alt="诺贝尔化学奖" class="h-32 object-contain rounded-lg border border-neutral-200">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-1 flex justify-center items-center mb-4 md:mb-0">
+                                <div class="z-10 w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                                    <span class="text-white font-bold">1979</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1980s -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="order-2 md:order-1 md:w-1/2 md:pr-12 md:text-right">
+                                <div class="bg-neutral-50 p-6 rounded-xl shadow-card hover-lift">
+                                    <h3 class="text-xl font-bold text-neutral-700 mb-2">1980年代</h3>
+                                    <p class="text-neutral-600">
+                                        Horner-Wadsworth-Emmons反应被广泛应用，该改进方法使用膦酸酯代替磷叶立德，生成更易分离的磷酸盐副产物，提高了反应的实用性。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="order-1 md:order-2 flex justify-center items-center mb-4 md:mb-0">
+                                <div class="z-10 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                                    <span class="text-white font-bold">1980s</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1990s -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="order-2 md:order-2 md:w-1/2 md:pl-12">
+                                <div class="bg-neutral-50 p-6 rounded-xl shadow-card hover-lift">
+                                    <h3 class="text-xl font-bold text-neutral-700 mb-2">1990年代</h3>
+                                    <p class="text-neutral-600">
+                                        不对称Wittig反应得到发展，通过手性磷试剂或手性催化剂实现烯烃的不对称合成，进一步扩展了Wittig反应的应用范围。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="order-1 flex justify-center items-center mb-4 md:mb-0">
+                                <div class="z-10 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                    <span class="text-white font-bold">1990s</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 现在 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="order-2 md:order-1 md:w-1/2 md:pr-12 md:text-right">
+                                <div class="bg-neutral-50 p-6 rounded-xl shadow-card hover-lift">
+                                    <h3 class="text-xl font-bold text-neutral-700 mb-2">现在</h3>
+                                    <p class="text-neutral-600">
+                                        有机磷化合物在药物化学、材料科学、天然产物全合成等领域持续发挥重要作用，新的反应方法和应用不断被报道。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="order-1 md:order-2 flex justify-center items-center">
+                                <div class="z-10 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                    <span class="text-white font-bold">现在</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-neutral-700 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">有机磷化学</h3>
+                    <p class="text-neutral-300 mb-4">
+                        探索磷元素在有机化学中的独特性质与应用，聚焦Wittig反应的机理与历史。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-neutral-300 hover:text-white transition-colors">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-neutral-300 hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-neutral-300 hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-neutral-300 hover:text-white transition-colors">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#overview" class="text-neutral-300 hover:text-white transition-colors">概述</a></li>
+                        <li><a href="#naming" class="text-neutral-300 hover:text-white transition-colors">命名</a></li>
+                        <li><a href="#properties" class="text-neutral-300 hover:text-white transition-colors">物理性质</a></li>
+                        <li><a href="#reactions" class="text-neutral-300 hover:text-white transition-colors">化学性质</a></li>
+                        <li><a href="#wittig" class="text-white font-medium">Wittig反应</a></li>
+                        <li><a href="#history" class="text-neutral-300 hover:text-white transition-colors">历史</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">资源</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-neutral-300 hover:text-white transition-colors">有机化学手册</a></li>
+                        <li><a href="#" class="text-neutral-300 hover:text-white transition-colors">科研论文</a></li>
+                        <li><a href="#" class="text-neutral-300 hover:text-white transition-colors">教学视频</a></li>
+                        <li><a href="#" class="text-neutral-300 hover:text-white transition-colors">实验方案</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-envelope text-primary mt-1 mr-2"></i>
+                            <span class="text-neutral-300">jacobhu@mail.ecust.edu.cn</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-phone text-primary mt-1 mr-2"></i>
+                            <span class="text-neutral-300">+86 183 2133 1108</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-map-marker text-primary mt-1 mr-2"></i>
+                            <span class="text-neutral-300">上海市奉贤区海湾旅游区海思路999号华东理工大学</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-neutral-600 mt-8 pt-8 text-center text-neutral-400">
+                <p>© 2025 胡润东. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                // 平滑滚动到目标位置
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 更新活动导航项
+                    document.querySelectorAll('nav a').forEach(navLink => {
+                        navLink.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                        navLink.classList.add('text-neutral-600');
+                    });
+                    
+                    this.classList.remove('text-neutral-600');
+                    this.classList.add('text-primary', 'border-b-2', 'border-primary');
+                }
+            });
+        });
+
+        // 监听滚动，更新活动导航项
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                link.classList.add('text-neutral-600');
+                
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-neutral-600');
+                    link.classList.add('text-primary', 'border-b-2', 'border-primary');
+                }
+            });
+        });
+
+        // 元素进入视口时添加动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section > div > div, .grid > div').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-500');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+    
